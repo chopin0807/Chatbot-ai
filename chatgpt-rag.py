@@ -1,15 +1,19 @@
 import streamlit as st
 from streamlit_chat import message
+from chatgpt_answer import retrieve
 from chatgpt_answer import response
  
-def generate_response(prompt):
+def generate_response():
     # open ai에서 발급받은 api key를 등록
     api_key = "<발급 api key>"
-    return response(api_key, user_input)
+    retriever = retrieve(api_key)
+    return retriever
  
  
 st.header("🤖한양대학교 창업지원단 챗봇 AI")
 st.markdown("ChatGPT와 RAG 이용")
+
+db = generate_response()
  
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
@@ -22,7 +26,7 @@ with st.form('form', clear_on_submit=True):
     submitted = st.form_submit_button('보내기')
  
 if submitted and user_input:
-    output = generate_response(user_input)
+    output = response(db, user_input)
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output)
  
