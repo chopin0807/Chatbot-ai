@@ -28,7 +28,6 @@ retriever = db.as_retriever()
 while 1:
     # 응답 생성
     llm_src = ChatOpenAI(temperature = 0, model = "gpt-3.5-turbo", api_key = api_key)
-    qa_chain = create_qa_with_sources_chain(llm_src)
     retrieval_qa = ConversationalRetrievalChain.from_llm(llm_src, retriever)
 
     # 질의응답 출력
