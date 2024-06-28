@@ -18,7 +18,7 @@ vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings)
 # 3. Call Ollama Llama3 model
 def ollama_llm(question, context):
     formatted_prompt = f"Question: {question}\n\nContext: {context}"
-    response = ollama.chat(model='llama3', messages=[{'role': 'user', 'content': formatted_prompt}])
+    response = ollama.chat(model='llama3-korean', messages=[{'role': 'user', 'content': formatted_prompt}])
     return response['message']['content']
 # 4. RAG Setup
 retriever = vectorstore.as_retriever()
