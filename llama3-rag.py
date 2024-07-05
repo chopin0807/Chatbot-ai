@@ -4,7 +4,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings.sentence_transformer import SentenceTransformerEmbeddings
-st.title("한양대학교 챗봇 AI 🌐")
+st.title("한양대학교 창업지원단(url: https://startup.hanyang.ac.kr/) 챗봇 AI 🌐")
 st.caption("local Llama-3와 RAG 이용")
 
 # 1. 수집된 웹 데이터 txt파일 불러오기
